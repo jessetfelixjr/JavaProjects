@@ -21,6 +21,14 @@
 			<from-outcome>listagem</from-outcome>
 			<to-view-id>/livro/listagemLivros.xhtml</to-view-id>
 		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>locacao</from-outcome>
+			<to-view-id>/livro/locacaoLivros.xhtml</to-view-id>
+		</navigation-case>
+		
+		
+		
 	</navigation-rule>
 
 </faces-config>

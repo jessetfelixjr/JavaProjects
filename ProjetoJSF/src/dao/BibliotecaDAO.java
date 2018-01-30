@@ -45,6 +45,27 @@ public class BibliotecaDAO extends PadraoDAO {
 		return livros;
 	}
 
+	public void confirmarLocacao(List<Livro> livros) {
+		
+		for(Livro l : livros) {
+			l.setIcAlugado('s');
+			this.livros.set(l.getCdLivro() - 1, l);			
+		}
+		
+	}
+
+	public List<Livro> getLivrosDisponiveis() {
+		List<Livro> livrosDisponiveis = new ArrayList<Livro>();
+		
+		for(Livro l : this.livros) {
+			if(l.getIcAlugado() == 'n') {
+				livrosDisponiveis.add(l);
+			}
+		}
+		
+		return livrosDisponiveis;
+	}
+
 	
 
 }

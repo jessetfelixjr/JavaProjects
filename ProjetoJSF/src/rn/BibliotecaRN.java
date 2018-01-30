@@ -28,4 +28,12 @@ public class BibliotecaRN {
 	public void salvarLivro(Livro livro) {
 		bibliotecaDAO.salvarLivro(livro);
 	}
+
+	public void confirmarLocacao(List<Livro> livros) {
+		bibliotecaDAO.confirmarLocacao(livros);
+	}
+
+	public List<Livro> buscarLivrosDisponiveis() {
+		return bibliotecaDAO.getLivrosDisponiveis();
+	}
 }
