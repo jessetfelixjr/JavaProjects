@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../template/templateComMenu.xhtml">
+	<ui:define name="title">Biblioteca Cuiabá</ui:define>
+	<ui:define name="content">
+
+		<h:form id="formLivro">
+
+			<p:growl id="growlStatus" sticky="true"></p:growl>
+
+			<p:panel header="Livro" id="panelLivro">
+
+				<h:panelGrid columns="3" cellpadding="5" id="panelGridLivro">
+
+					<p:outputLabel for="iptNomeLivro" value="Nome" />
+					<h:inputText value="#{principalMB.livro.nmLivro}" required="true"
+						requiredMessage="Nome do Livro é de preenchimento obrigatório" id="iptNomeLivro" />
+					<p:message for="iptNomeLivro" display="icon" />
+
+					<p:outputLabel value="Autor" for="iptNomeAutor" />
+					<h:inputText value="#{principalMB.livro.nmAutor}" required="true"
+						requiredMessage="Nome do Autor é de preenchimento obrigatório" id="iptNomeAutor" />
+					<p:message for="iptNomeAutor" display="icon" />
+					
+					<p:outputLabel value="Gênero" for="somGenero" />
+					<h:selectOneMenu value="#{principalMB.livro.genero.cdGenero}" required="true"
+					 requiredMessage="Gênero é de preenchimento obrigatório" id="somGenero">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{principalMB.listaGeneros}"></f:selectItems>
+					</h:selectOneMenu>
+					<p:message for="somGenero" display="icon" />
+					
+				</h:panelGrid>
+				
+				<p:commandButton title="Salvar" icon="ui-icon-disk" value="Salvar"
+				actionListener="#{principalMB.salvar}" update="formLivro" />
+				
+			</p:panel>
+
+			
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>

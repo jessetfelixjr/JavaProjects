@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/templateComMenu.xhtml">
+	<ui:define name="title">Início</ui:define>
+	<ui:define name="content">
+
+		<p:panel id="pnlImagem" header="Biblioteca Cuiabá"
+			footer="Rua Cuiabá, 355">
+			<div id="divImagem" align="center">
+				<p:imageSwitch effect="shuffle">
+					<ui:repeat id="switchImages" var="img"
+						value="#{principalMB.imagens}">
+
+						<p:graphicImage library="images" name="#{img}" width="90%" />
+					</ui:repeat>
+				</p:imageSwitch>
+			</div>
+
+		</p:panel>
+	</ui:define>
+
+</ui:composition>
+</html>

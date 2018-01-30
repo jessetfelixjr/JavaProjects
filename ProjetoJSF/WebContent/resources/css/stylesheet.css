@@ -1,0 +1,9 @@
+#pnlImagem > .ui-panel-titlebar {
+	text-align : center !important;
+}
+
+#divImagem > .vertical-align{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); /* Adicionar os prefixos dos navegadores */
+}
