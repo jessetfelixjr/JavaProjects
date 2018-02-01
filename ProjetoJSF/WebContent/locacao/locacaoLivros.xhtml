@@ -13,26 +13,37 @@
 
 		<h:form id="frmLocacaoLivros">
 
-			<p:growl id="growlStatus" sticky="true"></p:growl>
+			<p:growl id="growlStatus" showDetail="true" sticky="true"></p:growl>
 
 			<p:panel header="Aluguel de Livros" id="pnlLocacaoLivro" >
+
+				<h:panelGrid columns="2" cellpadding="5">
+
+					<p:outputLabel value="Cliente:" for="somCliente" />
+					<h:selectOneMenu id="somCliente" value="#{locacaoLivrosMB.cdCliente}"
+						required="true" requiredMessage="Selecione um cliente">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{locacaoLivrosMB.listaClientes}" />
+					</h:selectOneMenu>
+
+				</h:panelGrid>
 
 				<p:pickList id="pckListLivros" required="true"
 					requiredMessage="Selecione, no mínimo, um livro"
 					value="#{locacaoLivrosMB.listaLivros}" var="livro"
-					itemLabel="#{livro.nmLivro}" itemValue="#{livro}" converter="livroConverter">
+					itemLabel="#{livro.nmLivro}" itemValue="#{livro}"
+					converter="livroConverter">
 
 					<f:facet name="sourceCaption">Disponíveis</f:facet>
 					<f:facet name="targetCaption">Carrinho</f:facet>
 				</p:pickList>
-				
-				<p> <p:commandButton icon="ui-icon-check" value="Confirmar locação"
-					actionListener="#{locacaoLivrosMB.confirmarLocacao}" update="growlStatus pnlLocacaoLivro" />
-				</p>
-					
+
+				<p:commandButton icon="ui-icon-check" value="Confirmar locação"
+					actionListener="#{locacaoLivrosMB.confirmarLocacao}"
+					update="growlStatus pnlLocacaoLivro" />
 			</p:panel>
-			
-			
+
+
 		</h:form>
 	</ui:define>
 </ui:composition>

@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15155150818930" configfile="/ProjetoJSF/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="562" id="pf15172559426803" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15172559426804 pf15173449037740 pf15173449037741 pf15173449037742" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="562" id="pf15172559426803" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15172559426804 pf15173449037740 pf15173449037741 pf15173449037742 pf15174253179710 pf15174468777592" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="livro/cadastroLivros.xhtml" x="338" y="178" id="pf15172559426805" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf15172559426804" path="/livro/cadastroLivros.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="946" id="pf151725640646913" referenceLink="//@navigationRule.1/@fromViewId|" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="338" y="562" id="pf15173449037743" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15173449037740" path="/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="livro/listagemLivros.xhtml" x="338" y="946" id="pf15173449037744" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf15173449037741" path="/livro/listagemLivros.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="livro/locacaoLivros.xhtml" id="pf15173449037745" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf15173449037742" path="/livro/locacaoLivros.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="livro/listagemLivros.xhtml" x="338" y="946" id="pf15173449037744" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf15173449037741" path="/livro/listagemLivros.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="livro/locacaoLivros.xhtml" id="pf15173449037745" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf15173449037742" path="/locacao/locacaoLivros.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="cliente/clientes.xhtml" id="pf15174253179721" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf15174253179710" path="/cliente/clientes.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="locacao/listagemLocacao.xhtml" id="pf15174468777593" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf15174468777592" path="/locacao/listagemLocacao.xhtml"/>
   <links id="pf15172559426804" target="pf15172559426805" source="pf15172559426803" outcome="cadastro"/>
   <links id="pf15173449037740" target="pf15173449037743" source="pf15172559426803" outcome="menuprincipal"/>
   <links id="pf15173449037741" target="pf15173449037744" source="pf15172559426803" outcome="listagem"/>
   <links id="pf15173449037742" target="pf15173449037745" source="pf15172559426803" outcome="locacao"/>
+  <links id="pf15174253179710" target="pf15174253179721" source="pf15172559426803" outcome="cliente"/>
+  <links id="pf15174468777592" target="pf15174468777593" source="pf15172559426803" outcome="listagemLocacao"/>
 </pageflow:Pageflow>

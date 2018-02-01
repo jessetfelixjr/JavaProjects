@@ -10,20 +10,23 @@
 <ui:composition template="templateDefault.xhtml">
 	<ui:define name="header">
 		<h:form id="formMenu">
-			<p:menubar id="menuLivro" >
+			<p:menubar id="menuLivro">
 				<p:submenu label="Livro">
 					<p:menuitem value="Cadastrar" action="cadastro" />
 					<p:menuitem value="Listar" action="listagem" />
-					<p:separator />
-					<p:menuitem value="Locação" action="locacao" /> 
 				</p:submenu>
 
+				<p:submenu label="Pessoas">
+					<p:menuitem value="Clientes" action="cliente" />
+				</p:submenu>
+				
+				<p:submenu label="Locação" >
+					<p:menuitem value="Registrar Locação" action="locacao" />
+					<p:menuitem value="Listar Locações" action="listagemLocacao" />
+				</p:submenu>
+				
 				<p:submenu label="Outros">
 					<p:menuitem value="Voltar ao Menu Principal" action="menuprincipal" />
-				</p:submenu>
-
-				<p:submenu label="Menu 3">
-					<p:menuitem value="Item" />
 				</p:submenu>
 
 				<p:submenu label="Menu 4">
@@ -38,10 +41,10 @@
 					<p:menuitem value="Item" />
 				</p:submenu>
 			</p:menubar>
-			
+
 			<p:sticky target="menuLivro" />
 		</h:form>
-		
+
 
 	</ui:define>
 </ui:composition>

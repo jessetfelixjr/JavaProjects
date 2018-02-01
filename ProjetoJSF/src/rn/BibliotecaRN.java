@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 
+import classes.Cliente;
 import classes.Genero;
 import classes.Livro;
+import classes.Locacao;
 import dao.BibliotecaDAO;
 
 @Stateless
@@ -29,11 +31,23 @@ public class BibliotecaRN {
 		bibliotecaDAO.salvarLivro(livro);
 	}
 
-	public void confirmarLocacao(List<Livro> livros) {
-		bibliotecaDAO.confirmarLocacao(livros);
+	public void confirmarLocacao(Integer cdCliente, List<Livro> livros) {
+		bibliotecaDAO.confirmarLocacao(cdCliente, livros);
 	}
 
 	public List<Livro> buscarLivrosDisponiveis() {
 		return bibliotecaDAO.getLivrosDisponiveis();
+	}
+	
+	public List<Locacao> buscarLocacoes(){
+		return bibliotecaDAO.getLocacoes();
+	}
+	
+	public List<Cliente> buscarClientes(){
+		return bibliotecaDAO.getClientes();
+	}
+
+	public void salvarCliente(Cliente cliente) {
+		bibliotecaDAO.salvarCliente(cliente);
 	}
 }

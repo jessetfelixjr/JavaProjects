@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../template/templateComMenu.xhtml">
+	<ui:define name="title">Biblioteca Cuiabá</ui:define>
+	<ui:define name="content">
+
+		<h:form id="frmClientes">
+
+			<p:growl id="growlStatus" sticky="true"></p:growl>
+			<p:panel id="pnlClientes">
+
+				<p:dataTable var="cliente" value="#{clienteMB.listaClientes}">
+
+					<f:facet name="header">
+						<h:outputLabel value="Clientes" />
+					</f:facet>
+					
+					<p:column headerText="Nome">
+						<h:outputText value="#{cliente.nmCliente}" rendered="#{cliente.nmCliente != null}" />
+						<p:inputText value="#{clienteMB.cliente.nmCliente}" rendered="#{cliente.nmCliente == null}"  />
+					</p:column>
+
+					<p:column headerText="Telefone">
+						<h:outputText value="#{cliente.nrTelefoneRes}" rendered="#{cliente.nrTelefoneRes != null}" />
+						<p:inputMask mask="(99) 9999-9999" value="#{clienteMB.cliente.nrTelefoneRes}" rendered="#{cliente.nrTelefoneRes == null}" />
+					</p:column>
+
+
+					<f:facet name="footer">
+						<p:commandButton value="Novo" icon="ui-icon-plus" actionListener="#{clienteMB.adicionarCliente}" disabled="#{clienteMB.cliente != null}" update=":frmClientes:pnlClientes"  />
+						<p:commandButton value="Salvar" icon="ui-icon-plus" actionListener="#{clienteMB.salvarCliente}" disabled="#{clienteMB.cliente == null}" update=":frmClientes:pnlClientes :frmClientes:growlStatus"   />
+					</f:facet>
+
+				</p:dataTable>
+
+
+			</p:panel>
+
+		</h:form>
+
+
+
+	</ui:define>
+</ui:composition>
+</html>
