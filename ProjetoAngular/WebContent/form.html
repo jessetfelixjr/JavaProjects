@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<form ng-submit="salvar();">
+		<table class="table table-bordered table-hover table-condensed">
+
+			<tr>
+				<td>Nome:</td>
+				<td><input type="text" ng-model="livro.nome" ng-disabled="{{icEdicao}}" /></td>
+			</tr>
+
+			<tr>
+				<td>Autor:</td>
+				<td><input type="text" ng-model="livro.autor" /></td>
+			</tr>
+
+			<tr>
+				<td>Genero:</td>
+				<td><input type="text" ng-model="livro.genero" /></td>
+			</tr>
+
+		</table>
+
+		<button class="btn btn-primary" type="submit">Salvar</button>
+		<a ng-href="#!list">
+			<button class="btn btn-primary">Voltar</button>
+		</a>
+	</form>
+	
+
+</body>
+</html>

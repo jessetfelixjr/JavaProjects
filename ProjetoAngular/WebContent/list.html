@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="divPesquisa" class="form-horizontal">
+	<p class="form-group"> 
+		<input type="text" name="iptNome" ng-model="nomePesq" placeholder="Nome" class="form-control">
+		<input type="text" name="iptAutor" ng-model="autorPesq" placeholder="Autor" class="form-control">
+		<input type="text" name="iptGenero" ng-model="generoPesq" placeholder="Genero" class="form-control">
+	</p>
+</div>
+
+<hr />
+	<table class="table table-bordered table-striped table-hover table-condensed">
+		<thead class="thead-dark">
+			<tr>
+				<!-- <th scope="col">#</th> -->
+				<th scope="col" ng-click="orderByCol('nome')">Nome:</th>
+				<th scope="col" ng-click="orderByCol('autor')">Autor:</th>
+				<th scope="col" ng-click="orderByCol('genero')">Genero:</th>
+				<th scope="col">...</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr ng-repeat="livro in livros | orderBy: col | filter : { nome : nomePesq, autor : autorPesq, genero : generoPesq}  ">
+				<!-- <th scope="row"> {{$index + 1}} </th> -->
+				<td>{{livro.nome}} </td>
+				<td>{{livro.autor}}</td>
+				<td>{{livro.genero}}</td>
+				<td><a ng-href="#!edit/{{livro.nome}}/{{livro.autor}}/{{livro.genero}}"> Editar </a> </td>
+			</tr>
+		</tbody>
+
+
+
+
+	</table>
+	<a href ="#!new"> <button class="btn btn-success" > Novo Livro</button> </a>
+	
+</body>
+</html>
