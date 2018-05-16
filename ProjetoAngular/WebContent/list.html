@@ -2,16 +2,19 @@
 <html>
 <body>
 
-<div id="divPesquisa" class="form-horizontal">
-	<p class="form-group"> 
-		<input type="text" name="iptNome" ng-model="nomePesq" placeholder="Nome" class="form-control">
-		<input type="text" name="iptAutor" ng-model="autorPesq" placeholder="Autor" class="form-control">
-		<input type="text" name="iptGenero" ng-model="generoPesq" placeholder="Genero" class="form-control">
-	</p>
-</div>
+	<div id="divPesquisa" class="form-horizontal">
+		<p class="form-group">
+			<input type="text" name="iptNome" ng-model="nomePesq"
+				placeholder="Nome" class="form-control"> <input type="text"
+				name="iptAutor" ng-model="autorPesq" placeholder="Autor"
+				class="form-control"> <input type="text" name="iptGenero"
+				ng-model="generoPesq" placeholder="Genero" class="form-control">
+		</p>
+	</div>
 
-<hr />
-	<table class="table table-bordered table-striped table-hover table-condensed">
+	<hr />
+	<table
+		class="table table-bordered table-striped table-hover table-condensed">
 		<thead class="thead-dark">
 			<tr>
 				<!-- <th scope="col">#</th> -->
@@ -23,12 +26,18 @@
 		</thead>
 		<tbody>
 
-			<tr ng-repeat="livro in livros | orderBy: col | filter : { nome : nomePesq, autor : autorPesq, genero : generoPesq}  ">
+			<tr
+				ng-repeat="livro in livros | orderBy: col | filter : { nome : nomePesq, autor : autorPesq, genero : generoPesq}  ">
 				<!-- <th scope="row"> {{$index + 1}} </th> -->
-				<td>{{livro.nome}} </td>
+				<td>{{livro.nome}}</td>
 				<td>{{livro.autor}}</td>
 				<td>{{livro.genero}}</td>
-				<td><a ng-href="#!edit/{{livro.nome}}/{{livro.autor}}/{{livro.genero}}"> Editar </a> </td>
+				<td><a class="btn btnAdd" title="Editar"
+					ng-href="#!edit/{{livro.nome}}/{{livro.autor}}/{{livro.genero}}">
+						<i class="fa fa-pencil"> </i> </a>
+					<button class="btn btn-link" ng-click="excluir(livro)" title="Excluir">
+						<i class="fa fa-trash"></i>
+					</button></td>
 			</tr>
 		</tbody>
 
@@ -36,7 +45,9 @@
 
 
 	</table>
-	<a href ="#!new"> <button class="btn btn-success" > Novo Livro</button> </a>
-	
+	<a href="#!new">
+		<button class="btn btn-success" title="Novo Livro"><i class="fa fa-plus" aria-hidden="true"></i></button>
+	</a>
+
 </body>
 </html>

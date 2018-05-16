@@ -30,6 +30,11 @@ app.controller('listLivro', function($scope) {
 	$scope.orderByCol = function(column) {
 		$scope.col = column;
 	}
+	
+	$scope.excluir = function(livro){
+		var index = $scope.livros.indexOf(livro);
+		$scope.livros.splice(index, 1);
+	}
 
 });
 
