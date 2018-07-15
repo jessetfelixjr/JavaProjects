@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/default">
+<head>
+<title id="pageTitle">Livro</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<div id="page" layout:fragment="content">
+
+		<div class="container">
+
+			<div class="formLivro">
+
+				<form action="#" th:action="@{/cadastrarLivro}" th:object=${livro}
+					method="post">
+
+					<p>
+						Título: <input type="text" th:field="*{titulo}" />
+					<p>
+						Autor: <input type="text" th:field="*{autor}" />
+					<p>
+						Genero: <select th:field="*{genero.codigo}">
+							<option value="">..</option>
+							<option th:each="genero : ${generos}" th:value="${genero.codigo}"
+								th:utext="${genero.descricao}">
+						</select>
+
+						<button type="button" class="btn btn-primary" data-toggle="modal"
+							data-target="#generoModal">Novo Gênero</button>
+					</p>
+
+
+					<p>
+						<button type="submit" class="btn btn-primary">
+							<span class="ui-icon ui-icon-arrowthick-1-n"></span> Salvar
+						</button>
+					</p>
+				</form>
+
+				<div class="modal fade" id="generoModal" tabindex="-1" role="dialog"
+					aria-labelledby="generoModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+
+							<div class="modal-header">
+								<h5 class="modal-title" id="generoModalLabel">Adicionar
+									Gênero</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+
+							<form action="#" th:action="@{/adicionarGenero}"
+								th:object="${genero}" method="post">
+
+								<div class="modal-body">
+
+									<p>
+										Descrição: <input type="text" th:field="*{descricao}" />
+									</p>
+
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Fechar</button>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="table">
+
+
+				<table class="table table-bordered table-striped">
+
+					<thead class="thead-dark">
+						<tr>
+							<th>Título</th>
+							<th>Autor</th>
+							<th>Gênero</th>
+							<th>...</th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+						<tr th:each="livro, stat : ${livros}">
+							<td th:text="${livro.titulo}">as</td>
+							<td th:text="${livro.autor}">sa</td>
+							<td th:text="${livro.genero.descricao}">sa</td>
+							<td>
+								<form action="#" th:action="@{/excluirLivro}"
+									th:object="${livro}" method="post">
+									<button type="submit" class="btn btn-danger">Excluir</button>
+									<input type="hidden" th:attr="name=codigo"
+										th:value="${livro.codigo}" />
+								</form>
+							</td>
+
+						</tr>
+
+					</tbody>
+
+
+				</table>
+
+
+
+
+			</div>
+
+		</div>
+		<!-- /.container -->
+	</div>
+</body>
+</html>

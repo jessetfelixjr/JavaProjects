@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorator="layouts/default">
+ <head>
+ 	<title id="pageTitle">Página Inicial</title>
+ 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ </head>
+ <body>
+  <div id="page" layout:fragment="content">
+  	<div class="container"> 
+  		<img th:src="@{/images/biblioteca1.jpg}" class="img-fluid" alt="Responsive image">
+  	</div>
+  </div>
+ </body>
+</html>
